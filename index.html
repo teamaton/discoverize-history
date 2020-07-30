@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discoverize history</title>
     <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Discoverize history</h1>
-
-    <script src='./js/main.js'></script>
+<h1>Discoverize history</h1>
+<div class="btnsGroup">
+    <button class='btn btn--toggle btn--toggle--active' theme_color='#CB157D' style='--theme-color: #CB157D'>portals</button>
+    <button class='btn btn--toggle' theme_color='#0BD9AE' style='--theme-color: #0BD9AE'>sessions</button>
+    <button class='btn btn--toggle' theme_color='#0088CC' style='--theme-color: #0088CC'>inquiries</button>
+    <button class='btn btn--toggle' theme_color='#F1B144' style='--theme-color: #F1B144' >team members</button>
+</div>
+<div class="container">
+    <canvas id="myChart"></canvas>
+</div>
+<script src='./js/main.js' type="module"></script>
+<script src='./js/chart.js' type="module"></script>
 </body>
 </html>
