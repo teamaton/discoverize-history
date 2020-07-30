@@ -1,9 +1,38 @@
 const CONTAINER = document.querySelector('.container').style;
 const TOGGLE_BTNS = document.querySelectorAll('.btn--toggle');
+const FAKE_DATA = {
+    'portals': [5, 5, 14, 18, 25, 40, 70, 120, 130, 130, 130, 200, 210, 300],
+    'team_members': [1, 2, 2, 2, 3, 3, 3, 3, 5, 5, 5, 7, 7, 6],
+    'sessions': [120, 240, 560, 780, 1400, 2708, 5000, 5300, 5300, 5300, 12000, 12200, 17200, 12000],
+    'inquiries': [45, 634, 22, 3425, 634, 6473, 352, 9645, 754, 3547, 5464, 6532, 9543, 8000],
+}
+// Adapt dots on graph to the size of a window
+const ADAPT_DOTS = () => {
+    if(self.innerWidth < 600){
+        //Number - Radius of each point dot in pixels
+        myChart.data.datasets[0].pointRadius = 3;
+        //Number - Pixel width of point dot border
+        myChart.data.datasets[0].pointBorderWidth = 4;
+        //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+        myChart.data.datasets[0].pointHoverRadius = 5;
+    } else{
+        myChart.data.datasets[0].pointRadius = 3;
+        myChart.data.datasets[0].pointBorderWidth = 5;
+        myChart.data.datasets[0].pointHoverRadius = 10;
+    }
+}
+
 TOGGLE_BTNS.forEach(btn => {
     btn.addEventListener('click', () => {
+        if(self.innerWidth < 600){
+            TOGGLE_BTNS.forEach(btn => btn.classList.remove('lastBtn'));
+            btn.classList.add('lastBtn');
+        }  
+        
         TOGGLE_BTNS.forEach(btn => btn.classList.remove('btn--toggle--active'));
         btn.classList.add('btn--toggle--active');
+              
+
         // Display new data on graph
         switch(btn.textContent.toLowerCase()){
             case 'portals': 
@@ -25,13 +54,6 @@ TOGGLE_BTNS.forEach(btn => {
     });
 });
 
-const FAKE_DATA = {
-    'portals': [5, 5, 14, 18, 25, 40, 70, 120, 130, 130, 130, 200, 210, 300],
-    'team_members': [1, 2, 2, 2, 3, 3, 3, 3, 5, 5, 5, 7, 7, 6],
-    'sessions': [120, 240, 560, 780, 1400, 2708, 5000, 5300, 5300, 5300, 12000, 12200, 17200, 12000],
-    'inquiries': [45, 634, 22, 3425, 634, 6473, 352, 9645, 754, 3547, 5464, 6532, 9543, 8000],
-}
-
 var ctx = document.getElementById('myChart').getContext('2d');
 Chart.defaults.global.defaultFontColor = 'rgba(255, 255, 255, .8)';
 Chart.defaults.global.defaultFontFamily = 'Open Sans';
@@ -50,7 +72,7 @@ var myChart = new Chart(ctx, {
             //Number - Pixel width of dataset border
             borderWidth: 2,
             //Number - Tension of the bezier curve between points
-            tension: .1,
+            tension: .2,
             //Number - Radius of each point dot in pixels
             pointRadius: 3,
             //Number - Pixel width of point dot border
@@ -108,3 +130,10 @@ var myChart = new Chart(ctx, {
     }
 });
 
+window.onresize = () => {
+    ADAPT_DOTS();
+};
+
+window.onload = () => {
+    ADAPT_DOTS();
+};
