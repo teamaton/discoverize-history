@@ -1,1 +1,85 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+.container {
+  width: 100%;
+  background: #CB157D;
+  padding: 20px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.btnsGroup {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.btnsGroup .lastBtn {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+
+.btn {
+  border-radius: 2px 2px 0 0;
+  font-size: 16px;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: none;
+  -webkit-transition: 0s !important;
+  transition: 0s !important;
+}
+
+.btn--toggle {
+  margin: 0px;
+  background-color: #f9f9f9;
+  -webkit-transition: .3s !important;
+  transition: .3s !important;
+}
+
+.btn--toggle--active, .btn--toggle:hover {
+  color: white;
+  background-color: var(--theme-color);
+  -webkit-transition: .3s !important;
+  transition: .3s !important;
+}
+
+.btn--toggle:hover {
+  cursor: pointer;
+}
+
+.btn--toggle:focus {
+  outline: none;
+}
+
+html, body {
+  background: #f9f9f9;
+  text-align: center;
+  margin: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .btnsGroup {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    border-radius: 2px;
+  }
+  .btnsGroup .btn {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=main.css.map */
