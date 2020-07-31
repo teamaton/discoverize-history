@@ -2,12 +2,6 @@
   background: #CB157D;
   padding: 40px 20vw;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 * {
@@ -61,12 +55,6 @@
   width: 100%;
 }
 
-.btnsGroup .lastBtn {
-  -webkit-box-ordinal-group: 5;
-      -ms-flex-order: 4;
-          order: 4;
-}
-
 .btn {
   border-radius: 2px 2px 0 0;
   font-size: 16px;
@@ -107,18 +95,16 @@ html, body {
 }
 
 @media only screen and (max-width: 600px) {
-  .btnsGroup {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column;
-            flex-flow: column;
-    border-radius: 2px;
-  }
   .btnsGroup .btn {
+    padding: 10px 10px;
     width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1279px) {
+  .container {
+    padding: 20px 40px;
   }
 }
 /*# sourceMappingURL=main.css.map */

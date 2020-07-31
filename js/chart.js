@@ -3,7 +3,7 @@ const TOGGLE_BTNS = document.querySelectorAll('.btn--toggle');
 const MILESTONES = document.querySelectorAll('.milestone');
 const FAKE_DATA = {
     'portals': [5, 5, 14, 18, 25, 40, 70, 120, 130, 130, 130, 200, 210, 300],
-    'team_members': [1, 2, 2, 2, 3, 3, 3, 3, 5, 5, 5, 7, 7, 6],
+    'team': [1, 2, 2, 2, 3, 3, 3, 3, 5, 5, 5, 7, 7, 6],
     'sessions': [120, 240, 560, 780, 1400, 2708, 5000, 5300, 5300, 5300, 12000, 12200, 17200, 12000],
     'inquiries': [45, 634, 22, 3425, 634, 6473, 352, 9645, 754, 3547, 5464, 6532, 9543, 8000],
 }
@@ -33,12 +33,7 @@ TOGGLE_BTNS.forEach(btn => {
             MILESTONES.forEach(card => {
                 card.style.backgroundColor = new_color;
                 card.style.boxShadow = `4px 4px 20px ${new_color}40`;
-            })
-
-            if(self.innerWidth < 600){
-                TOGGLE_BTNS.forEach(btn => btn.classList.remove('lastBtn'));
-                btn.classList.add('lastBtn');
-            }  
+            });
             
             TOGGLE_BTNS.forEach(btn => btn.classList.remove('btn--toggle--active'));
             btn.classList.add('btn--toggle--active');
@@ -51,8 +46,8 @@ TOGGLE_BTNS.forEach(btn => {
             case 'portals': 
                 myChart.data.datasets[0].data = FAKE_DATA.portals;
                 break;
-            case 'team members': 
-                myChart.data.datasets[0].data = FAKE_DATA.team_members;
+            case 'team': 
+                myChart.data.datasets[0].data = FAKE_DATA.team;
                 break;
             case 'sessions': 
                 myChart.data.datasets[0].data = FAKE_DATA.sessions;
