@@ -1,7 +1,13 @@
 .container {
-  width: 100%;
   background: #CB157D;
-  padding: 20px;
+  padding: 40px 20vw;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 * {
