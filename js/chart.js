@@ -1,5 +1,6 @@
 const CONTAINER = document.querySelector('.container').style;
 const TOGGLE_BTNS = document.querySelectorAll('.btn--toggle');
+const MILESTONES = document.querySelectorAll('.milestone');
 const FAKE_DATA = {
     'portals': [5, 5, 14, 18, 25, 40, 70, 120, 130, 130, 130, 200, 210, 300],
     'team_members': [1, 2, 2, 2, 3, 3, 3, 3, 5, 5, 5, 7, 7, 6],
@@ -24,14 +25,26 @@ const ADAPT_DOTS = () => {
 
 TOGGLE_BTNS.forEach(btn => {
     btn.addEventListener('click', () => {
-        if(self.innerWidth < 600){
-            TOGGLE_BTNS.forEach(btn => btn.classList.remove('lastBtn'));
-            btn.classList.add('lastBtn');
-        }  
         
-        TOGGLE_BTNS.forEach(btn => btn.classList.remove('btn--toggle--active'));
-        btn.classList.add('btn--toggle--active');
-              
+        const UPDATE_STYLES = () => {
+            let new_color = btn.getAttribute('theme_color');
+
+            CONTAINER.background = new_color
+            MILESTONES.forEach(card => {
+                card.style.backgroundColor = new_color;
+                card.style.boxShadow = `4px 4px 20px ${new_color}40`;
+            })
+
+            if(self.innerWidth < 600){
+                TOGGLE_BTNS.forEach(btn => btn.classList.remove('lastBtn'));
+                btn.classList.add('lastBtn');
+            }  
+            
+            TOGGLE_BTNS.forEach(btn => btn.classList.remove('btn--toggle--active'));
+            btn.classList.add('btn--toggle--active');
+        }
+
+        UPDATE_STYLES();
 
         // Display new data on graph
         switch(btn.textContent.toLowerCase()){
@@ -49,8 +62,6 @@ TOGGLE_BTNS.forEach(btn => {
                 break;
         }
         myChart.update();
-        // Update graphs bg color
-        CONTAINER.background = btn.getAttribute('theme_color');
     });
 });
 
