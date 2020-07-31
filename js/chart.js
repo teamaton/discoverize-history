@@ -67,9 +67,11 @@ var myChart = new Chart(ctx, {
     type: 'line',
     responsive: true,
     data: {
+        // Data for x axis
         labels: ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'],
         datasets: [{
             label: 'Count: ',
+            // Data for the graph
             data: FAKE_DATA.portals,
             backgroundColor: [
                 'rgba(255, 255, 255, 0.5)'
