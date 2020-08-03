@@ -22,7 +22,6 @@ const ADAPT_DOTS = () => {
         myChart.data.datasets[0].pointHoverRadius = 10;
     }
 }
-
 TOGGLE_BTNS.forEach(btn => {
     btn.addEventListener('click', () => {
         
@@ -65,12 +64,10 @@ Chart.defaults.global.defaultFontColor = 'rgba(255, 255, 255, .8)';
 Chart.defaults.global.defaultFontFamily = 'Open Sans';
 var myChart = new Chart(ctx, {
     type: 'line',
-    responsive: true,
     data: {
         // Data for x axis
         labels: ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'],
         datasets: [{
-            label: 'Count: ',
             // Data for the graph
             data: FAKE_DATA.portals,
             backgroundColor: [
@@ -91,6 +88,8 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         tooltips:{
             intersect: false,
             displayColors: false,
@@ -105,7 +104,6 @@ var myChart = new Chart(ctx, {
         scales: {
             xAxes: [{
                 ticks: {
-                    beginAtZero: true,
                     padding: 10, 
                 },
                 // grid line settings
@@ -139,10 +137,5 @@ var myChart = new Chart(ctx, {
     }
 });
 
-window.onresize = () => {
-    ADAPT_DOTS();
-};
-
-window.onload = () => {
-    ADAPT_DOTS();
-};
+window.addEventListener('resize', ADAPT_DOTS);
+window.addEventListener('load', ADAPT_DOTS);
