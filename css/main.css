@@ -6,16 +6,22 @@ html, body {
 
 .container {
   background: #CB157D;
-  padding: 40px 20vw;
-  width: 100%;
+  padding: 30px 5vw 50px 5vw;
+  height: 80vh;
   position: relative;
   text-align: left;
+}
+
+.container .chart__container {
+  position: absolute;
+  width: calc(100% - 10vw);
+  height: calc(100% - 140px);
 }
 
 .container .chart__title {
   line-height: 40px;
   position: absolute;
-  top: 70px;
+  top: 160px;
   left: 25vw;
   color: white;
   font-family: 'Open sans';
@@ -100,31 +106,32 @@ html, body {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
+  margin-bottom: 40px;
+  margin-top: -10px;
 }
 
 .btn {
-  border-radius: 2px 2px 0 0;
   font-size: 16px;
+  font-weight: 600;
   font-family: 'Open Sans';
-  text-transform: uppercase;
   padding: 10px 20px;
   border: none;
-  -webkit-transition: 0s !important;
-  transition: 0s !important;
 }
 
 .btn--toggle {
   margin: 0px;
-  background-color: #f9f9f9;
-  -webkit-transition: .3s !important;
-  transition: .3s !important;
+  background-color: transparent;
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .btn--toggle--active, .btn--toggle:hover {
   color: white;
-  background-color: var(--theme-color);
-  -webkit-transition: .3s !important;
-  transition: .3s !important;
+}
+
+.btn--toggle--active {
+  border-color: white;
 }
 
 .btn--toggle:hover {
@@ -157,7 +164,7 @@ html, body {
     font-size: 14px;
   }
   .container .chart__title {
-    top: 40px;
+    top: 130px;
     left: 80px;
     line-height: 25px;
   }
@@ -189,11 +196,8 @@ html, body {
 }
 
 @media only screen and (max-width: 1279px) {
-  .container {
-    padding: 20px 40px;
-  }
   .container .chart__title {
-    top: 40px;
+    top: 160px;
     left: 80px;
     line-height: 35px;
   }

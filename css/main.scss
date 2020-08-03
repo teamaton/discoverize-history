@@ -6,16 +6,22 @@ html, body{
 
 .container{
     background: #CB157D;
-    padding: 40px 20vw;
-    width: 100%;
+    padding: 30px 5vw 50px 5vw;
+    height: 80vh;
     position: relative;
     text-align: left;
     
     .chart{
+        &__container{
+            position: absolute;
+            width: calc(100% - 10vw);
+            height: calc(100% - 140px);
+        }
+
         &__title{
             line-height: 40px;
             position: absolute;
-            top: 70px;
+            top: 160px;
             left: 25vw;
             color: white;
             font-family: 'Open sans';
@@ -93,28 +99,31 @@ html, body{
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-bottom: 40px;
+    margin-top: -10px;
 }
 
 .btn{   
-    border-radius: 2px 2px 0 0;
-    font-size: 16px;
+    font-size: 16px;    
+    font-weight: 600;
     font-family: 'Open Sans';
-    text-transform: uppercase;
     padding: 10px 20px;
     border: none;
-    transition: 0s !important;
 
     &--toggle{
         margin: 0px;
-        background-color: #f9f9f9;
-        transition: .3s !important;
+        background-color: transparent;
+        transition: .3s;
+        color: rgba(256, 256, 256, 0.6);
 
         &--active, &:hover{
             color: white;
-            background-color: var(--theme-color);
-            transition: .3s !important;
         }
-        
+
+        &--active{
+            border-color: white;
+        }
+
         &:hover{
             cursor: pointer;
         }
@@ -159,7 +168,7 @@ html, body{
     .container{
         .chart{
             &__title{
-                top: 40px;
+                top: 130px;
                 left: 80px;
                 line-height: 25px;
             }
@@ -199,11 +208,9 @@ html, body{
 }
 @media only screen and (max-width: 1279px) {
     .container{
-        padding: 20px 40px;
-
         .chart{
             &__title{
-                top: 40px;
+                top: 160px;
                 left: 80px;
                 line-height: 35px;
             }
