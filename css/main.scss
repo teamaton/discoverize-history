@@ -1,3 +1,9 @@
+html, body{
+    background: #f9f9f9;
+    text-align: center;
+    margin: 0px;
+}
+
 .container{
     background: #CB157D;
     padding: 40px 20vw;
@@ -40,6 +46,7 @@
     transition: 0.6s;
 }
 .milestonesGroup {
+    margin-top: 20px;
     width: 100%;
     text-align: left;
     display: flex;
@@ -47,8 +54,8 @@
 
     .milestone{
         display: inline-block;
-        max-width: calc(50vw - 40px);
-        margin: 20px;
+        max-width: calc(50vw - 20px);
+        margin: 10px;
         background-color: rgb(203, 21, 125);
         border-radius: 3px;
         color: white;
@@ -56,6 +63,8 @@
         padding: 50px 30px 40px 30px;
         position: relative;
         box-shadow: 4px 4px 20px rgba(203, 21, 125, 0.4);
+        transition: .3s;
+        top: 0px;
 
         &__title{
             text-align: left;
@@ -71,6 +80,11 @@
             top: 20px;
             margin: 0px;
             font-size: 13px;
+        }
+
+        &:hover{
+            position: relative;
+            top: -5px;
         }
     }
 }
@@ -113,12 +127,27 @@
 
 }
 
-html, body{
-    background: #f9f9f9;
-    text-align: center;
-    margin: 0px;
+@media only screen and (max-width: 400px) {
+    .container{
+        .chart{
+            &__title{
+                line-height: 15px !important;
+            }
+    
+            &__score{
+                font-size: 20px !important;
+            }
+    
+            &__category{
+                font-size: 15px !important;
+            }
+    
+            &__date{
+                font-size: 10px !important;
+            }
+        }
+    }
 }
-
 @media only screen and (max-width: 600px) {
     .btnsGroup {
         .btn{
@@ -136,15 +165,15 @@ html, body{
             }
     
             &__score{
-                font-size: 30px !important;
+                font-size: 30px;
             }
     
             &__category{
-                font-size: 20px !important;
+                font-size: 20px;
             }
     
             &__date{
-                font-size: 16px !important;
+                font-size: 16px;
             }
         }
     }

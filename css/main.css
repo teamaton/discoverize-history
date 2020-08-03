@@ -1,3 +1,9 @@
+html, body {
+  background: #f9f9f9;
+  text-align: center;
+  margin: 0px;
+}
+
 .container {
   background: #CB157D;
   padding: 40px 20vw;
@@ -38,6 +44,7 @@
 }
 
 .milestonesGroup {
+  margin-top: 20px;
   width: 100%;
   text-align: left;
   display: -webkit-box;
@@ -49,8 +56,8 @@
 
 .milestonesGroup .milestone {
   display: inline-block;
-  max-width: calc(50vw - 40px);
-  margin: 20px;
+  max-width: calc(50vw - 20px);
+  margin: 10px;
   background-color: #cb157d;
   border-radius: 3px;
   color: white;
@@ -59,6 +66,9 @@
   position: relative;
   -webkit-box-shadow: 4px 4px 20px rgba(203, 21, 125, 0.4);
           box-shadow: 4px 4px 20px rgba(203, 21, 125, 0.4);
+  -webkit-transition: .3s;
+  transition: .3s;
+  top: 0px;
 }
 
 .milestonesGroup .milestone__title {
@@ -75,6 +85,11 @@
   top: 20px;
   margin: 0px;
   font-size: 13px;
+}
+
+.milestonesGroup .milestone:hover {
+  position: relative;
+  top: -5px;
 }
 
 .btnsGroup {
@@ -120,10 +135,19 @@
   outline: none;
 }
 
-html, body {
-  background: #f9f9f9;
-  text-align: center;
-  margin: 0px;
+@media only screen and (max-width: 400px) {
+  .container .chart__title {
+    line-height: 15px !important;
+  }
+  .container .chart__score {
+    font-size: 20px !important;
+  }
+  .container .chart__category {
+    font-size: 15px !important;
+  }
+  .container .chart__date {
+    font-size: 10px !important;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -138,13 +162,13 @@ html, body {
     line-height: 25px;
   }
   .container .chart__score {
-    font-size: 30px !important;
+    font-size: 30px;
   }
   .container .chart__category {
-    font-size: 20px !important;
+    font-size: 20px;
   }
   .container .chart__date {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 }
 
