@@ -114,16 +114,32 @@ html, body {
   font-size: 16px;
   font-weight: 600;
   font-family: 'Open Sans';
-  padding: 10px 20px;
   border: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .btn--toggle {
-  margin: 0px;
+  margin: 10px 20px;
+  padding: 0px;
   background-color: transparent;
   -webkit-transition: .3s;
   transition: .3s;
   color: rgba(255, 255, 255, 0.6);
+  position: relative;
+}
+
+.btn--toggle:after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 0px;
+  left: 0px;
+  bottom: -10px;
+  background: white;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .btn--toggle--active, .btn--toggle:hover {
@@ -134,12 +150,17 @@ html, body {
   border-color: white;
 }
 
+.btn--toggle--active:after {
+  width: 100%;
+}
+
 .btn--toggle:hover {
   cursor: pointer;
 }
 
 .btn--toggle:focus {
   outline: none;
+  color: white;
 }
 
 @media only screen and (max-width: 400px) {
@@ -158,9 +179,8 @@ html, body {
 }
 
 @media only screen and (max-width: 600px) {
-  .btnsGroup .btn {
-    padding: 10px 10px;
-    width: 100%;
+  .btnsGroup .btn--toggle {
+    margin: 10px 10px;
     font-size: 14px;
   }
   .container .chart__title {

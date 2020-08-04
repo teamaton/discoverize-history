@@ -107,14 +107,27 @@ html, body{
     font-size: 16px;    
     font-weight: 600;
     font-family: 'Open Sans';
-    padding: 10px 20px;
     border: none;
+    width: max-content;
 
     &--toggle{
-        margin: 0px;
+        margin: 10px 20px;
+        padding: 0px;
         background-color: transparent;
         transition: .3s;
         color: rgba(256, 256, 256, 0.6);
+        position: relative;
+
+        &:after{
+            position: absolute;
+            content: "";
+            height: 3px;
+            width: 0px;
+            left: 0px;
+            bottom: -10px;
+            background: white;
+            transition: .3s;
+        }
 
         &--active, &:hover{
             color: white;
@@ -122,6 +135,10 @@ html, body{
 
         &--active{
             border-color: white;
+
+            &:after{
+                width: 100%;
+            }
         }
 
         &:hover{
@@ -130,6 +147,7 @@ html, body{
 
         &:focus{
             outline: none;
+            color: white;           
         }
     }
 
@@ -159,9 +177,8 @@ html, body{
 }
 @media only screen and (max-width: 600px) {
     .btnsGroup {
-        .btn{
-            padding: 10px 10px;
-            width: 100%;
+        .btn--toggle{
+            margin: 10px 10px;
             font-size: 14px;
         }
     }
