@@ -1,34 +1,36 @@
+import { STYLES } from './styles.js';
+
 const CONTAINER = document.querySelector('.container').style;
 const TOGGLE_BTNS = document.querySelectorAll('.btn--toggle');
-const MILESTONES = document.querySelectorAll('.milestone');
-const FAKE_DATA = {
-    'portals': [5, 5, 14, 18, 25, 40, 70, 120, 130, 130, 130, 200, 210, 300],
-    'team': [1, 2, 2, 2, 3, 3, 3, 3, 5, 5, 5, 7, 7, 6],
-    'sessions': [120, 240, 560, 780, 1400, 2708, 5000, 5300, 5300, 5300, 12000, 12200, 17200, 12000],
-    'inquiries': [45, 634, 22, 3425, 634, 6473, 352, 9645, 754, 3547, 5464, 6532, 9543, 8000],
-}
-// Adapt dots on graph to the size of a window
-const ADAPT_DOTS = () => {
-    if(self.innerWidth < 600){
-        //Number - Radius of each point dot in pixels
-        myChart.data.datasets[0].pointRadius = 3;
-        //Number - Pixel width of point dot border
-        myChart.data.datasets[0].pointBorderWidth = 4;
-        //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-        myChart.data.datasets[0].pointHoverRadius = 5;
-    } else{
-        myChart.data.datasets[0].pointRadius = 3;
-        myChart.data.datasets[0].pointBorderWidth = 5;
-        myChart.data.datasets[0].pointHoverRadius = 10;
-    }
-}
+const MILESTONES_CONTAINER = document.querySelector('.milestonesGroup');
+const CHART_SCORE = document.querySelector('.chart__score');
+const CHART_CATEGORY = document.querySelector('.chart__category');
+let data_from_json;
+
+// Get data for milestones
+fetch('../data/milestones.json')
+    .then(response => response.json())
+    .then(data => data.milestones)
+    .then(data => {
+        data.forEach(milestone => {
+            MILESTONES_CONTAINER.innerHTML += `
+                <div class="milestone">
+                    <h3 class='milestone__title'>${milestone.title}</h3>
+                    <p class='milestone__date'>${milestone.date}</p>
+                </div>
+            `;
+        });
+    });
+
+// Nav functionality and change of styles
 TOGGLE_BTNS.forEach(btn => {
     btn.addEventListener('click', () => {
         
         const UPDATE_STYLES = () => {
             let new_color = btn.getAttribute('theme_color');
 
-            CONTAINER.background = new_color
+            CONTAINER.background = new_color;
+            const MILESTONES = document.querySelectorAll('.milestone');
             MILESTONES.forEach(card => {
                 card.style.backgroundColor = new_color;
                 card.style.boxShadow = `4px 4px 20px ${new_color}40`;
@@ -43,99 +45,65 @@ TOGGLE_BTNS.forEach(btn => {
         // Display new data on graph
         switch(btn.textContent.toLowerCase()){
             case 'portals': 
-                myChart.data.datasets[0].data = FAKE_DATA.portals;
+                myChart.data.datasets[0].data = data_from_json.portals;
                 break;
             case 'team': 
-                myChart.data.datasets[0].data = FAKE_DATA.team;
+                myChart.data.datasets[0].data = data_from_json.team;
                 break;
             case 'sessions': 
-                myChart.data.datasets[0].data = FAKE_DATA.sessions;
+                myChart.data.datasets[0].data = data_from_json.sessions;
                 break;
             case 'inquiries': 
-                myChart.data.datasets[0].data = FAKE_DATA.inquiries;
+                myChart.data.datasets[0].data = data_from_json.inquiries;
                 break;
         }
         myChart.update();
     });
 });
 
+// Graph settings
 var ctx = document.getElementById('myChart').getContext('2d');
 Chart.defaults.global.defaultFontColor = 'rgba(255, 255, 255, .8)';
 Chart.defaults.global.defaultFontFamily = 'Open Sans';
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        // Data for x axis
-        labels: ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'],
-        datasets: [{
-            // Data for the graph
-            data: FAKE_DATA.portals,
-            backgroundColor: [
-                'rgba(255, 255, 255, 0.5)'
-            ],
-            borderColor: '#FFFFFF',
-            
-            //Number - Pixel width of dataset border
-            borderWidth: 2,
-            //Number - Tension of the bezier curve between points
-            tension: .2,
-            //Number - Radius of each point dot in pixels
-            pointRadius: 3,
-            //Number - Pixel width of point dot border
-            pointBorderWidth: 5,
-            //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-            pointHoverRadius: 10,
-        }]
+        datasets: STYLES.datasets
     },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        tooltips:{
-            intersect: false,
-            displayColors: false,
-            titleFontColor: '#777',
-            backgroundColor: 'rgba(256, 256, 256, 1)',
-            cornerRadius: 3,
-            bodyFontColor: '#777'
-        },
-        legend: {
-            display: false,
-        },
-        scales: {
-            xAxes: [{
-                ticks: {
-                    padding: 10, 
-                },
-                // grid line settings
-                gridLines: {
-                    show: true,
-                    color: "rgba(256, 256, 256, 0.1)",
-                    lineWidth: 2,
-                    drawOnChartArea: true,
-                    drawTicks: false, // draw ticks extending towards the label
-                    zeroLineWidth: 0,
-                },
-            }],
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true,
-                    padding: 10, 
-                },
-                position: "right",
-                // grid line settings
-                gridLines: {
-                    show: true,
-                    color: "rgba(256, 256, 256, 0.1)",
-                    lineWidth: 2,
-                    drawOnChartArea: true,
-                    drawTicks: false, // draw ticks extending towards the label
-                    zeroLineWidth: 0,
-                },
-            }],
-            
-        },
-    }
+    options: STYLES.options
 });
+
+// RWD for points on the graph
+const ADAPT_DOTS = () => {
+    if(self.innerWidth < 600){
+        //Number - Radius of each point dot in pixels
+        myChart.data.datasets[0].pointRadius = 3;
+        //Number - Pixel width of point dot border
+        myChart.data.datasets[0].pointBorderWidth = 4;
+        //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+        myChart.data.datasets[0].pointHoverRadius = 5;
+    } else{
+        myChart.data.datasets[0].pointRadius = 3;
+        myChart.data.datasets[0].pointBorderWidth = 5;
+        myChart.data.datasets[0].pointHoverRadius = 10;
+    }
+}
+
+// Get data for the graph
+fetch('../data/graph_data.json')
+    .then(response => response.json())
+    .then(data => data.categories)
+    .then(data => {
+        data_from_json = data;
+        for (let category in data_from_json) {
+            data_from_json[category].forEach(data => {
+                data.x = new Date(data.x, 1, 1);
+            })
+        }
+
+        myChart.data.datasets[0].data = data_from_json.portals;
+        myChart.update();
+    });
 
 window.addEventListener('resize', ADAPT_DOTS);
 window.addEventListener('load', ADAPT_DOTS);
