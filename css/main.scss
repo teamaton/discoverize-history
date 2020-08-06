@@ -175,6 +175,17 @@ html, body{
             }
         }
     }
+    .milestonesGroup {
+
+
+        .milestone{
+            padding: 15px 10px 15px 0px;
+
+            &__title{ 
+                padding-left: 0px;
+            }
+        }
+    }
 }
 @media only screen and (max-width: 600px) {
     .btnsGroup {
@@ -208,7 +219,6 @@ html, body{
 @media only screen and (max-width: 768px) {
     .milestonesGroup {
         .milestone{
-            padding: 30px 20px 20px 20px;
             max-width: calc(50vw - 20px);
             margin: 10px;
 
