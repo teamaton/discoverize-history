@@ -9,13 +9,11 @@ let toggle_btns;
 let active_category;
 
 
-// Check if website is displayed in iframe
-if (window.location === window.parent.location){ 
-    // Get data for milestones
-    fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
-        .then(response => response.json())
-        .then(data => data.milestones)
-        .then(data => {
+// Get data for milestones
+fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
+    .then(response => response.json())
+    .then(data => data.milestones)
+    .then(data => {
             data.forEach(milestone => {
                 MILESTONES_CONTAINER.innerHTML += `
                     <div class="milestone">
@@ -64,8 +62,7 @@ if (window.location === window.parent.location){
                     myChart.update();
                 });
             })
-        });
-}  
+    });
 
 
 // Graph settings
@@ -140,14 +137,10 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
 
                     CONTAINER.background = new_color;
                     document.body.style.backgroundColor = new_color;
-                    
-                    // Check if website is displayed in iframe
-                    if (window.location === window.parent.location){ 
-                        const MILESTONES = document.querySelectorAll('.milestone');
-                        MILESTONES.forEach(card => {
-                            card.children[0].style.backgroundColor = new_color;
-                        });
-                    }
+                    const MILESTONES = document.querySelectorAll('.milestone');
+                    MILESTONES.forEach(card => {
+                        card.children[0].style.backgroundColor = new_color;
+                    });
                     
                     toggle_btns.forEach(btn => btn.classList.remove('btn--toggle--active'));
                     btn.classList.add('btn--toggle--active');
