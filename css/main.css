@@ -5,7 +5,6 @@ html, body {
 }
 
 .container {
-  background: #CB157D;
   padding: 30px 5vw 50px 5vw;
   height: 80vh;
   position: relative;
@@ -64,14 +63,11 @@ html, body {
   display: inline-block;
   max-width: calc(50vw - 20px);
   margin: 10px;
-  background-color: #cb157d;
   border-radius: 3px;
   color: white;
   font-family: 'Open sans';
   padding: 50px 30px 40px 30px;
   position: relative;
-  -webkit-box-shadow: 4px 4px 20px rgba(203, 21, 125, 0.4);
-          box-shadow: 4px 4px 20px rgba(203, 21, 125, 0.4);
   -webkit-transition: .3s;
   transition: .3s;
   top: 0px;
