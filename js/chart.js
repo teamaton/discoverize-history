@@ -3,7 +3,7 @@ import { STYLES } from './styles.js';
 const CONTAINER = document.querySelector('.container').style;
 const MILESTONES_CONTAINER = document.querySelector('.milestonesGroup');
 const CHART_OVERLAY = document.querySelectorAll('.chart__title > span');
-const BRAND_COLORS = ['#CB157D', '#0BD9AE', '#0088CC', '#F1B144'];
+const BRAND_COLORS = ['#0088CC', '#0BD9AE', '#F1B144', '#CB157D'];
 let data_from_json;
 let toggle_btns;
 let active_category;
@@ -115,9 +115,7 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
             }
         }
 
-        // Make first btn active when website is loaded
         toggle_btns = document.querySelectorAll('.btn--toggle');
-        toggle_btns[0].classList.add('btn--toggle--active');
         // Display first data category
         active_category = Object.values(data_from_json)[0];
         UPDATE_CHART();
@@ -152,5 +150,8 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
                 UPDATE_CHART();
             });
         });
+
+        // Activate first color
+        toggle_btns[0].click();
 
     });
