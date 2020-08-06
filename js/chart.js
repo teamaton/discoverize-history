@@ -105,9 +105,9 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
             })
             // Display nav according to amount and type of categories
             document.querySelector('.btnsGroup').innerHTML += `
-                <button class='btn btn--toggle' theme_color=${BRAND_COLORS[color_counter]}>
+                <a href='#${category}' class='btn btn--toggle' theme_color=${BRAND_COLORS[color_counter]}>
                     ${category}
-                </button>
+                </a>
             `;
             color_counter++;
             if(color_counter >= BRAND_COLORS.length){
@@ -151,7 +151,18 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
             });
         });
 
-        // Activate first color
-        toggle_btns[0].click();
+
+        // Check if it was opened in new tab
+        let active_hash = window.location.hash;
+        if(active_hash){
+            toggle_btns.forEach(btn => {
+                if(btn.getAttribute('href') === active_hash){
+                    btn.click();
+                }
+            })
+        } else {
+            // Activate first category
+            toggle_btns[0].click();
+        }
 
     });
