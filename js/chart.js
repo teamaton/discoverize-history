@@ -168,3 +168,8 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
         }
 
     });
+
+// Check if website is displayed in iframe
+if (window.location === window.parent.location){
+    document.querySelector('.container').style.height = '50vh';
+}
