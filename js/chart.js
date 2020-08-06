@@ -16,8 +16,8 @@ fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
         data.forEach(milestone => {
             MILESTONES_CONTAINER.innerHTML += `
                 <div class="milestone">
-                    <h3 class='milestone__title'>${milestone.title}</h3>
                     <p class='milestone__date'>${milestone.date}</p>
+                    <h3 class='milestone__title'>${milestone.title}</h3>
                 </div>
             `;
         });
@@ -25,7 +25,7 @@ fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
         document.querySelectorAll('.milestone').forEach(card => {
             let point_schrink;
             let point_grow;
-            let point_index = parseInt(card.children[1].textContent) - 2007;  
+            let point_index = parseInt(card.children[0].textContent) - 2007;  
             // Turn on pulse animation
             card.addEventListener('mouseenter',  () => {
                 myChart.options.tooltips.enabled = false; 
@@ -134,10 +134,10 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
                     let new_color = btn.getAttribute('theme_color');
 
                     CONTAINER.background = new_color;
+                    document.body.style.backgroundColor = new_color;
                     const MILESTONES = document.querySelectorAll('.milestone');
                     MILESTONES.forEach(card => {
-                        card.style.backgroundColor = new_color;
-                        card.style.boxShadow = `4px 4px 20px ${new_color}40`;
+                        card.children[0].style.backgroundColor = new_color;
                     });
                     
                     toggle_btns.forEach(btn => btn.classList.remove('btn--toggle--active'));

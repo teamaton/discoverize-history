@@ -60,13 +60,19 @@ html, body {
 }
 
 .milestonesGroup .milestone {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   max-width: calc(50vw - 20px);
   margin: 10px;
   border-radius: 3px;
-  color: white;
+  background-color: #ffffff;
+  color: #777777;
   font-family: 'Open sans';
-  padding: 50px 30px 40px 30px;
+  padding: 25px 30px 25px 10px;
   position: relative;
   -webkit-transition: .3s;
   transition: .3s;
@@ -77,16 +83,18 @@ html, body {
   text-align: left;
   margin: 0px;
   font-size: 15px;
+  padding-left: 10px;
 }
 
 .milestonesGroup .milestone__date {
-  position: absolute;
-  opacity: .7;
-  left: 30px;
   font-weight: 900;
-  top: 20px;
   margin: 0px;
   font-size: 13px;
+  padding: 3px 10px;
+  color: #ffffff;
+  border-radius: 3px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 .milestonesGroup .milestone:hover {

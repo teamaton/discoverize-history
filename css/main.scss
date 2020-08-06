@@ -58,13 +58,15 @@ html, body{
     flex-wrap: wrap;
 
     .milestone{
-        display: inline-block;
+        display: flex;
+        align-items: center;
         max-width: calc(50vw - 20px);
         margin: 10px;
         border-radius: 3px;
-        color: white;
+        background-color: #ffffff;
+        color: #777777;
         font-family: 'Open sans';
-        padding: 50px 30px 40px 30px;
+        padding: 25px 30px 25px 10px;
         position: relative;
         transition: .3s;
         top: 0px;
@@ -73,16 +75,17 @@ html, body{
             text-align: left;
             margin: 0px;
             font-size: 15px;
+            padding-left: 10px;
         }
 
         &__date{
-            position: absolute;
-            opacity: .7;
-            left: 30px;
             font-weight: 900;
-            top: 20px;
             margin: 0px;
             font-size: 13px;
+            padding: 3px 10px;
+            color: #ffffff;
+            border-radius: 3px;
+            transform: rotate(-90deg);
         }
 
         &:hover{
