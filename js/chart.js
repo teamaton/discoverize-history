@@ -8,60 +8,65 @@ let data_from_json;
 let toggle_btns;
 let active_category;
 
-// Get data for milestones
-fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
-    .then(response => response.json())
-    .then(data => data.milestones)
-    .then(data => {
-        data.forEach(milestone => {
-            MILESTONES_CONTAINER.innerHTML += `
-                <div class="milestone">
-                    <p class='milestone__date'>${milestone.date}</p>
-                    <h3 class='milestone__title'>${milestone.title}</h3>
-                </div>
-            `;
-        });
 
-        document.querySelectorAll('.milestone').forEach(card => {
-            let point_schrink;
-            let point_grow;
-            let point_index = parseInt(card.children[0].textContent) - 2007;  
-            // Turn on pulse animation
-            card.addEventListener('mouseenter',  () => {
-                myChart.options.tooltips.enabled = false; 
-                
-                point_grow = setInterval(() => {
+// Check if website is displayed in iframe
+if (window.location === window.parent.location){ 
+    // Get data for milestones
+    fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
+        .then(response => response.json())
+        .then(data => data.milestones)
+        .then(data => {
+            data.forEach(milestone => {
+                MILESTONES_CONTAINER.innerHTML += `
+                    <div class="milestone">
+                        <p class='milestone__date'>${milestone.date}</p>
+                        <h3 class='milestone__title'>${milestone.title}</h3>
+                    </div>
+                `;
+            });
+
+            document.querySelectorAll('.milestone').forEach(card => {
+                let point_schrink;
+                let point_grow;
+                let point_index = parseInt(card.children[0].textContent) - 2007;  
+                // Turn on pulse animation
+                card.addEventListener('mouseenter',  () => {
+                    myChart.options.tooltips.enabled = false; 
+                    
+                    point_grow = setInterval(() => {
+                        myChart.getDatasetMeta(0).data[point_index].custom = {
+                            borderWidth: 13,
+                            radius: 6
+                        };
+                        myChart.update();
+                    }, 500);
+                    point_schrink = setInterval(() => {
+                        myChart.getDatasetMeta(0).data[point_index].custom = {
+                            borderWidth: 6,
+                        };
+                        myChart.update();
+                    }, 1000);
+                });
+                // Turn off pulse animation
+                card.addEventListener('mouseleave',  () => {
+                    clearInterval(point_grow);
+                    clearInterval(point_schrink);
+                    myChart.options.tooltips.enabled = true;
+                    let default_size = 6;
+                    // Check if its the point marking the launch of discoverize 
+                    if(point_index === 4){
+                        default_size = 13;
+                    }
                     myChart.getDatasetMeta(0).data[point_index].custom = {
-                        borderWidth: 13,
-                        radius: 6
+                        borderWidth: default_size,
+                        pointRadius: 2
                     };
                     myChart.update();
-                }, 500);
-                point_schrink = setInterval(() => {
-                    myChart.getDatasetMeta(0).data[point_index].custom = {
-                        borderWidth: 6,
-                    };
-                    myChart.update();
-                }, 1000);
-            });
-            // Turn off pulse animation
-            card.addEventListener('mouseleave',  () => {
-                clearInterval(point_grow);
-                clearInterval(point_schrink);
-                myChart.options.tooltips.enabled = true;
-                let default_size = 6;
-                // Check if its the point marking the launch of discoverize 
-                if(point_index === 4){
-                    default_size = 13;
-                }
-                myChart.getDatasetMeta(0).data[point_index].custom = {
-                    borderWidth: default_size,
-                    pointRadius: 2
-                };
-                myChart.update();
-            });
-        })
-    });
+                });
+            })
+        });
+}  
+
 
 // Graph settings
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -135,10 +140,14 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
 
                     CONTAINER.background = new_color;
                     document.body.style.backgroundColor = new_color;
-                    const MILESTONES = document.querySelectorAll('.milestone');
-                    MILESTONES.forEach(card => {
-                        card.children[0].style.backgroundColor = new_color;
-                    });
+                    
+                    // Check if website is displayed in iframe
+                    if (window.location === window.parent.location){ 
+                        const MILESTONES = document.querySelectorAll('.milestone');
+                        MILESTONES.forEach(card => {
+                            card.children[0].style.backgroundColor = new_color;
+                        });
+                    }
                     
                     toggle_btns.forEach(btn => btn.classList.remove('btn--toggle--active'));
                     btn.classList.add('btn--toggle--active');
