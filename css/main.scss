@@ -117,6 +117,7 @@ html, body{
         transition: .3s;
         color: rgba(256, 256, 256, 0.6);
         position: relative;
+        text-decoration: none;
 
         &:after{
             position: absolute;

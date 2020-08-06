@@ -132,6 +132,7 @@ html, body {
   transition: .3s;
   color: rgba(255, 255, 255, 0.6);
   position: relative;
+  text-decoration: none;
 }
 
 .btn--toggle:after {
