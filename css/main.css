@@ -4,6 +4,10 @@ html, body {
   margin: 0px;
 }
 
+body {
+  padding-bottom: 9vw;
+}
+
 .container {
   padding: 30px 5vw 50px 5vw;
   height: 80vh;
