@@ -56,36 +56,64 @@ body{
 }
 .milestonesGroup {
     margin-top: 20px;
+    margin-bottom: 80px;
     width: 100%;
     text-align: left;
     display: flex;
     flex-wrap: wrap;
+    padding: 10px;
 
     .milestone{
         display: flex;
-        align-items: center;
-        max-width: calc(50vw - 20px);
-        margin: 10px;
+        align-items: flex-start;
+        width: 20%;
+        margin: 5px 0px;
+        height: 50px;
         border-radius: 3px;
         background-color: #ffffff;
         color: #777777;
         font-family: 'Open sans';
-        padding: 15px 30px 15px 10px;
+        padding: 10px 15px 40px 45px;
         position: relative;
         transition: .3s;
         top: 0px;
 
+        &:not(:first-child){
+            clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%, 5% 50%);
+        }
+
+        &:first-child{
+            clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+            padding: 10px 15px 40px 35px;
+
+            .milestone__date{
+                left: 0px;
+            }
+        }
+
+        &:last-child{
+            clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%, 5% 50%);
+        }
+
+        &:last-child{
+            width: calc(20% - 5px);
+            margin-left: 5px;
+        }
+
         &__title{
             text-align: left;
             margin: 0px;
-            font-size: 13px;
-            padding-left: 10px;
+            font-size: 10px;
+            padding-left: 0px;
         }
 
         &__date{
             font-weight: 900;
+            position: absolute;
             margin: 0px;
-            font-size: 12px;
+            left: 10px;
+            top: 16px;
+            font-size: 9px;
             padding: 3px 8px;
             color: #ffffff;
             border-radius: 3px;
@@ -107,11 +135,28 @@ body{
     margin-top: -10px;
 }
 
+.link{
+    margin-top: 50px;
+    text-decoration: none;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-family: 'Open Sans';
+    font-size: 16px;    
+
+    &:focus, &:hover{
+        box-shadow: -4px 4px 20px rgba(255, 255, 255, 0.4);
+    }
+
+}
+
 .btn{   
     font-size: 16px;    
     font-weight: 600;
     font-family: 'Open Sans';
     border: none;
+    text-decoration: none;
     width: max-content;
 
     &--toggle{
@@ -121,7 +166,6 @@ body{
         transition: .3s;
         color: rgba(256, 256, 256, 0.6);
         position: relative;
-        text-decoration: none;
 
         &:after{
             position: absolute;
@@ -180,13 +224,12 @@ body{
         }
     }
     .milestonesGroup {
-
-
         .milestone{
-            padding: 15px 10px 15px 0px;
+            width: 50%;
+            height: 60px;
 
-            &__title{ 
-                padding-left: 0px;
+            &:last-child{
+                width: calc(50% - 5px);
             }
         }
     }
@@ -223,17 +266,10 @@ body{
 @media only screen and (max-width: 768px) {
     .milestonesGroup {
         .milestone{
-            max-width: calc(50vw - 20px);
-            margin: 10px;
+            width: 33%;
 
-            &__title{ 
-                font-size: 12px;
-            }
-
-            &__date{
-                left: 20px;
-                font-size: 10px;
-                top: 13px;
+            &:last-child{
+                width: calc(33% - 5px);
             }
         }
     }
