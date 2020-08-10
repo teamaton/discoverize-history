@@ -2,40 +2,44 @@
     "milestones": [
      
        {
-          "title":"We launched Discoverize",
+          "title":"Start als Web Agentur mit Fokus auf Branchenportale",
+          "date": 2006 
+       },
+       {
+          "title":"Start der Umsetzung von camping.info",
+          "date": 2007 
+       },
+       {
+          "title":"Start der Entwicklung von discoverize als eigenständiges Produkt",
           "date": 2011
        },
        {
-          "title":"Aliqua aliqua non ad sunt sunt laborum nulla nostrud eu. Et nisi in veniam offi",
-          "date": 2012
+          "title":"Launch des ersten Portals: marina.info",
+          "date": 2013 
        },
        {
-          "title":"Est consectetur consequat fugiat anim",
-          "date": 2013
+          "title":"Start von kinderhotel.info",
+          "date": 2014 
        },
        {
-          "title":"Ipsum velit sit culpa reprehenderit.",
-          "date": 2014
-       },
-       {
-          "title":"Lorem cupidatat exercitation irure sint in deserunt magna aliqua.",
-          "date": 2015
-       },
-       {
-          "title":"Reprehenderit magna ullamco culpa velit culpa aliqua reprehenderit.",
-          "date": 2016
-       },
-       {
-          "title":"Laborum Lorem consequat esse sit veniam id aliquip nulla nostrud do adipisicing reprehenderit consequat esse.",
-          "date": 2017
-       },
-       {
-          "title":"Fugiat labore aute fugiat nulla duis adipisicing fugiat aliquip occaecat ullamco culpa minim nisi laborum.",
+          "title":"Verkauf von camping.info an Investorengruppe",
           "date": 2018
        },
        {
-          "title":"Aliquip do ipsum ex tempor.",
+          "title":"100% Fokus auf discoverize Produkt",
+          "date": 2019 
+       },
+       {
+          "title":"über 40 Kunden -> nicht nötig, da im Graph",
+          "date": 2019 
+       },
+       {
+          "title":"19 neue Portale im ersten Halbjahr -> nicht nötig, da im Graph",
           "date": 2019
+       },
+       {
+          "title":"3.500 (aktualisieren) Premium Kunden, 2.800 (aktualisieren) neue Bewertungen",
+          "date": 2020 
        }
     ]
 }
