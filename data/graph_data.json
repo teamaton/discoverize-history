@@ -4,7 +4,7 @@
             "data": [
                 {
                     "x": 2007,
-                    "y": 0
+                    "y": 3
                 },
                 {
                     "x": 2008,
@@ -192,11 +192,11 @@
                 }
             ],
             "overlay": {
-                "score": "32",
-                "cathegory": "team",
-                "date": "since 2007"
+                "score": "6",
+                "cathegory": "superteam",
+                "date": "since 2010"
             },
-            "tooltipLabel": "People on board: "
+            "tooltipLabel": "people working on improving discoverize: "
         },
         "inquiries": {
             "data": [
