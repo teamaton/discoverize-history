@@ -53,7 +53,7 @@ fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
                     let default_size = 6;
                     // Check if its the point marking the launch of discoverize 
                     if(point_index === 4){
-                        default_size = 13;
+                        default_size = STYLES.specialPoint.borderWidth;
                     }
                     myChart.getDatasetMeta(0).data[point_index].custom = {
                         borderWidth: default_size,
@@ -67,8 +67,8 @@ fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
 
 // Graph settings
 var ctx = document.getElementById('myChart').getContext('2d');
-Chart.defaults.global.defaultFontColor = 'rgba(255, 255, 255, .8)';
-Chart.defaults.global.defaultFontFamily = 'Open Sans';
+Chart.defaults.global.defaultFontColor = STYLES.labels.fontFamily;
+Chart.defaults.global.defaultFontFamily = STYLES.labels.color;
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -121,11 +121,8 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
         // Display first data category
         active_category = Object.values(data_from_json)[0];
         UPDATE_CHART();
-        
-        myChart.getDatasetMeta(0).data[4].custom = {
-            borderWidth: 13,
-            pointRadius: 2
-        };
+        // Add special style for the most important date
+        myChart.getDatasetMeta(0).data[4].custom = STYLES.specialPoint;
 
 
         // Nav functionality and change of styles

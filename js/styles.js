@@ -2,11 +2,17 @@ const COLORS = {
     white: 'rgba(255, 255, 255, 1)',
     white_light: 'rgba(255, 255, 255, 0.5)',
     white_lighter: 'rgba(255, 255, 255, 0.1)',
-    grey: 'rgb(119,119,119)',
-    black: 'rgb(64,64,64)'
 }
 
 const STYLES = {
+    labels: {
+        fontFamily: 'Open Sans',
+        color: 'rgba(255, 255, 255, .8)'
+    },
+    specialPoint: {
+        borderWidth: 13,
+        pointRadius: 2
+    },
     options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -14,7 +20,7 @@ const STYLES = {
             intersect: false,
             displayColors: false,
             titleFontColor: '#777',
-            backgroundColor: 'rgba(255, 255, 255, 1)',
+            backgroundColor: COLORS.white,
             cornerRadius: 3,
             bodyFontColor: '#777'
         },
@@ -30,7 +36,7 @@ const STYLES = {
                 // grid line settings
                 gridLines: {
                     show: true,
-                    color: "rgba(255, 255, 255, 0.1)",
+                    color: COLORS.white_lighter,
                     lineWidth: 2,
                     drawOnChartArea: true,
                     drawTicks: false, // draw ticks extending towards the label
@@ -56,7 +62,7 @@ const STYLES = {
                 // grid line settings
                 gridLines: {
                     show: true,
-                    color: "rgba(255, 255, 255, 0.1)",
+                    color: COLORS.white_lighter,
                     lineWidth: 2,
                     drawOnChartArea: true,
                     drawTicks: false, // draw ticks extending towards the label
@@ -70,7 +76,7 @@ const STYLES = {
         // Data for the graph
         data: null,
         backgroundColor: [
-            'rgba(255, 255, 255, 0.5)'
+            COLORS.white_light
         ],
         borderColor: '#FFFFFF',
         
