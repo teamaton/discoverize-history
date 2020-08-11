@@ -57,7 +57,7 @@ fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
                     }
                     myChart.getDatasetMeta(0).data[point_index].custom = {
                         borderWidth: default_size,
-                        pointRadius: 2
+                        pointRadius: STYLES.specialPoint.pointRadius
                     };
                     myChart.update();
                 });
@@ -169,5 +169,5 @@ fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
 // Check if website is displayed in iframe
 if (window.location !== window.parent.location){
     document.querySelector('.container').style.height = '50vh';
-    document.querySelector('.link').style.display = 'none';
+    document.querySelector('#btnToHomePage').style.display = 'none';
 }
