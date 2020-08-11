@@ -67,8 +67,8 @@ fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
 
 // Graph settings
 var ctx = document.getElementById('myChart').getContext('2d');
-Chart.defaults.global.defaultFontColor = STYLES.labels.fontFamily;
-Chart.defaults.global.defaultFontFamily = STYLES.labels.color;
+Chart.defaults.global.defaultFontColor = STYLES.labels.color;
+Chart.defaults.global.defaultFontFamily = STYLES.labels.fontFamily;
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
