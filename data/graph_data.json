@@ -60,7 +60,7 @@
                 }
             ],
             "overlay": {
-                "score": "77",
+                "score": "77 (es werden 2020 noch mehr)",
                 "cathegory": "Anzahl Portale",
                 "date": "seit 2012"
             },
@@ -122,8 +122,8 @@
                 }
             ],
             "overlay": {
-                "score": "7300000",
-                "cathegory": "Sessions in allen Portalen im Jahr",
+                "score": "7.300.000",
+                "cathegory": "Sessions in allen Portalen im Jahr 2019",
                 "date": "seit 2015 (keine historischen Daten für 2012-2014 vorhanden)"
             },
             "tooltipLabel": "Sessions: "
@@ -184,8 +184,8 @@
                 }
             ],
             "overlay": {
-                "score": "4700",
-                "cathegory": "Premium-Einträge in allen Portalen im Jahr",
+                "score": "4.700",
+                "cathegory": "Premium-Einträge in allen Portalen im Jahr 2019",
                 "date": "seit 2014"
             },
             "tooltipLabel": "Anzahl Premium-Einträge: "
@@ -246,8 +246,8 @@
                 }
             ],
             "overlay": {
-                "score": "102000",
-                "cathegory": "Anfragen in allen Portalen im Jahr",
+                "score": "102.000",
+                "cathegory": "Anfragen in allen Portalen im Jahr 2019 verschickt",
                 "date": "seit 2017 (keine historischen Daten für 2012-2016 vorhanden)"
             },
             "tooltipLabel": "Anzahl Anfragen: "
