@@ -74,16 +74,16 @@ body {
           align-items: flex-start;
   width: 20%;
   margin: 5px 0px;
-  height: 50px;
   border-radius: 3px;
   background-color: #ffffff;
   color: #777777;
+  min-height: 80px !important;
   font-family: 'Open sans';
-  padding: 10px 15px 40px 45px;
+  padding: 10px 15px 10px 45px;
   position: relative;
   -webkit-transition: .3s;
   transition: .3s;
-  top: 0px;
+  right: 0px;
 }
 
 .milestonesGroup .milestone:not(:first-child) {
@@ -94,11 +94,6 @@ body {
 .milestonesGroup .milestone:first-child {
   -webkit-clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
           clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
-  padding: 10px 15px 40px 35px;
-}
-
-.milestonesGroup .milestone:first-child .milestone__date {
-  left: 0px;
 }
 
 .milestonesGroup .milestone:last-child {
@@ -106,26 +101,21 @@ body {
           clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%, 5% 50%);
 }
 
-.milestonesGroup .milestone:last-child {
-  width: calc(20% - 5px);
-  margin-left: 5px;
-}
-
 .milestonesGroup .milestone__title {
   text-align: left;
   margin: 0px;
-  font-size: 10px;
-  padding-left: 0px;
+  font-size: 12px;
+  padding: 0px 3% 0px 5%;
 }
 
 .milestonesGroup .milestone__date {
   font-weight: 900;
   position: absolute;
   margin: 0px;
-  left: 10px;
-  top: 16px;
+  left: 5%;
+  top: 21px;
   font-size: 9px;
-  padding: 3px 8px;
+  padding: 3px 12px;
   color: #ffffff;
   border-radius: 3px;
   -webkit-transform: rotate(-90deg);
@@ -134,7 +124,7 @@ body {
 
 .milestonesGroup .milestone:hover {
   position: relative;
-  top: -5px;
+  right: -5px;
 }
 
 .btnsGroup {
@@ -219,6 +209,18 @@ body {
   color: white;
 }
 
+@media only screen and (max-width: 710px) {
+  .milestonesGroup .milestone {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .milestonesGroup .milestone {
+    width: 100% !important;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .container .chart__title {
     line-height: 15px !important;
@@ -231,13 +233,6 @@ body {
   }
   .container .chart__date {
     font-size: 10px !important;
-  }
-  .milestonesGroup .milestone {
-    width: 50%;
-    height: 60px;
-  }
-  .milestonesGroup .milestone:last-child {
-    width: calc(50% - 5px);
   }
 }
 
@@ -262,12 +257,9 @@ body {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   .milestonesGroup .milestone {
     width: 33%;
-  }
-  .milestonesGroup .milestone:last-child {
-    width: calc(33% - 5px);
   }
 }
 
@@ -285,6 +277,18 @@ body {
   }
   .container .chart__date {
     font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 4000px) {
+  .milestonesGroup .milestone__title {
+    font-size: 15px !important;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .milestonesGroup .milestone__title {
+    font-size: 13px !important;
   }
 }
 /*# sourceMappingURL=main.css.map */
