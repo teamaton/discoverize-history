@@ -15,6 +15,10 @@ body {
   text-align: left;
 }
 
+.container--small {
+  height: 50vh;
+}
+
 .container .chart__container {
   position: absolute;
   width: calc(100% - 10vw);
@@ -153,6 +157,10 @@ body {
 .link:focus, .link:hover {
   -webkit-box-shadow: -4px 4px 20px rgba(255, 255, 255, 0.4);
           box-shadow: -4px 4px 20px rgba(255, 255, 255, 0.4);
+}
+
+.link--invisible {
+  display: none;
 }
 
 .btn {

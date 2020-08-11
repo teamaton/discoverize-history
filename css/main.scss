@@ -14,6 +14,10 @@ body{
     position: relative;
     text-align: left;
     
+    &--small{
+        height: 50vh;
+    }
+
     .chart{
         &__container{
             position: absolute;
@@ -45,15 +49,13 @@ body{
             font-weight: 400;
         }
     }
-
-    
-
-
 }
+
 * {
     box-sizing: border-box;
     transition: 0.6s;
 }
+
 .milestonesGroup {
     margin-top: 20px;
     margin-bottom: 80px;
@@ -132,10 +134,14 @@ body{
     padding: 15px 30px;
     font-weight: 600;
     font-family: 'Open Sans';
-    font-size: 16px;    
+    font-size: 16px;   
 
     &:focus, &:hover{
         box-shadow: -4px 4px 20px rgba(255, 255, 255, 0.4);
+    }
+
+    &--invisible{
+        display: none;
     }
 
 }
