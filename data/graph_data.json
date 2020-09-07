@@ -1,6 +1,6 @@
 {
     "categories": {
-        "Portale": {
+        "Portals": {
             "data": [
                 {
                     "x": 2007,
@@ -60,11 +60,11 @@
                 }
             ],
             "overlay": {
-                "score": "77 (es werden 2020 noch mehr)",
-                "cathegory": "Anzahl Portale",
-                "date": "seit 2012"
+                "score": "77 (and counting for 2020)",
+                "cathegory": "Number of Portals",
+                "date": "since 2012"
             },
-            "tooltipLabel": "Anzahl Portale: "
+            "tooltipLabel": "Number of Portals: "
         },
         "Sessions": {
             "data": [
@@ -123,8 +123,8 @@
             ],
             "overlay": {
                 "score": "7.300.000",
-                "cathegory": "Sessions in allen Portalen im Jahr 2019",
-                "date": "seit 2015 (keine historischen Daten für 2012-2014 vorhanden)"
+                "cathegory": "Sessions in all Portals in 2020",
+                "date": "since 2015 (no historic data for 2011-2014)"
             },
             "tooltipLabel": "Sessions: "
         },
@@ -185,12 +185,12 @@
             ],
             "overlay": {
                 "score": "4.700",
-                "cathegory": "Premium-Einträge in allen Portalen im Jahr 2019",
-                "date": "seit 2014"
+                "cathegory": "Premium-Entries in all Portals in 2019",
+                "date": "since 2014"
             },
-            "tooltipLabel": "Anzahl Premium-Einträge: "
+            "tooltipLabel": "Number of Premium-Entries: "
         },
-        "Anfragen": {
+        "Inquiries": {
             "data": [
                 {
                     "x": 2007,
@@ -247,10 +247,10 @@
             ],
             "overlay": {
                 "score": "102.000",
-                "cathegory": "Anfragen in allen Portalen im Jahr 2019 verschickt",
-                "date": "seit 2017 (keine historischen Daten für 2012-2016 vorhanden)"
+                "cathegory": "Inquiries in all Portals in Jahr 2019",
+                "date": "since 2019 (no historic data for 2011-2016 available)"
             },
-            "tooltipLabel": "Anzahl Anfragen: "
+            "tooltipLabel": "Number of Inquiries: "
         }
     }       
 }
