@@ -10,7 +10,7 @@ let active_category;
 
 
 // Get data for milestones
-fetch('https://teamaton.github.io/discoverize-history/data/milestones.json')
+fetch('/data/milestones.json')
     .then(response => response.json())
     .then(data => data.milestones)
     .then(data => {
@@ -94,7 +94,7 @@ const UPDATE_CHART = () => {
 }
 
 // Get data for the graph
-fetch('https://teamaton.github.io/discoverize-history/data/graph_data.json')
+fetch('/data/graph_data.json')
     .then(response => response.json())
     .then(data => data.categories)
     .then(data => {
