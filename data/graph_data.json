@@ -1,6 +1,6 @@
 {
     "categories": {
-        "Portals": {
+        "Portale": {
             "data": [
                 {
                     "x": 2007,
@@ -190,7 +190,7 @@
             },
             "tooltipLabel": "Anzahl Premium-Einträge: "
         },
-        "Inquiries": {
+        "Anfragen": {
             "data": [
                 {
                     "x": 2007,
