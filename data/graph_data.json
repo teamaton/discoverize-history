@@ -60,11 +60,11 @@
                 }
             ],
             "overlay": {
-                "score": "77 (and counting for 2020)",
-                "cathegory": "Number of Portals",
-                "date": "since 2012"
+                "score": "77 (und steigend für 2020)",
+                "cathegory": "Anzahl Portale",
+                "date": "seit 2011"
             },
-            "tooltipLabel": "Number of Portals: "
+            "tooltipLabel": "Anzahl Portale: "
         },
         "Sessions": {
             "data": [
@@ -123,8 +123,8 @@
             ],
             "overlay": {
                 "score": "7.300.000",
-                "cathegory": "Sessions in all Portals in 2020",
-                "date": "since 2015 (no historic data for 2011-2014)"
+                "cathegory": "Sessions in allen Portalen in 2020",
+                "date": "seit 2015 (keine historischen Daten für 2011-2014)"
             },
             "tooltipLabel": "Sessions: "
         },
@@ -185,10 +185,10 @@
             ],
             "overlay": {
                 "score": "4.700",
-                "cathegory": "Premium-Entries in all Portals in 2019",
-                "date": "since 2014"
+                "cathegory": "Premium-Einträge in allen Portalen in 2019",
+                "date": "seit 2014"
             },
-            "tooltipLabel": "Number of Premium-Entries: "
+            "tooltipLabel": "Anzahl Premium-Einträge: "
         },
         "Inquiries": {
             "data": [
@@ -247,10 +247,10 @@
             ],
             "overlay": {
                 "score": "102.000",
-                "cathegory": "Inquiries in all Portals in 2019",
-                "date": "since 2019 (no historic data for 2011-2016 available)"
+                "cathegory": "Anfragen in allen Portalen in 2019",
+                "date": "seit 2019 (keine historischen Daten für 2011-2016 vorhanden)"
             },
-            "tooltipLabel": "Number of Inquiries: "
+            "tooltipLabel": "Anzahl Anfragen: "
         }
     }       
 }
