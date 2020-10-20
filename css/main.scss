@@ -2,10 +2,11 @@ html, body{
     background: #f9f9f9;
     text-align: center;
     margin: 0px;
+    height: 100%;
 }
 
 body{
-    padding-bottom: 5vw;
+    padding-bottom: 1vw;
 }
 
 .container{
@@ -13,9 +14,9 @@ body{
     height: 80vh;
     position: relative;
     text-align: left;
-    
+
     &--small{
-        height: 50vh;
+        height: 700px;
     }
 
     .chart{
@@ -237,6 +238,14 @@ body{
     }
 }
 
+@media only screen and (max-width: 990px) {
+    html
+    body
+    .container--small {
+        height: 500px;
+    }
+}
+
 @media only screen and (max-width: 968px) {
     .milestonesGroup {
         .milestone{
@@ -252,6 +261,7 @@ body{
         }
     }
 }
+
 @media only screen and (max-width: 450px) {
     .milestonesGroup {
         .milestone{

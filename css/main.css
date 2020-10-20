@@ -2,10 +2,11 @@ html, body {
   background: #f9f9f9;
   text-align: center;
   margin: 0px;
+  height: 100%;
 }
 
 body {
-  padding-bottom: 5vw;
+  padding-bottom: 1vw;
 }
 
 .container {
@@ -16,7 +17,7 @@ body {
 }
 
 .container--small {
-  height: 50vh;
+  height: 700px;
 }
 
 .container .chart__container {
@@ -237,6 +238,14 @@ body {
 @media only screen and (max-width: 400px) {
   .container .chart__title {
     font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  html
+body
+.container--small {
+    height: 500px;
   }
 }
 
